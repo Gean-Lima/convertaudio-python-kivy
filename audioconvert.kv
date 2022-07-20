@@ -1,0 +1,78 @@
+<AudioConvertLayout>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        Label:
+            text: "Choose a file:"
+            text_size: self.size
+            halign: "left"
+            valign: "middle"
+            size_hint_y: None
+            height: 40
+        FileChooserListView:
+            id: file_chooser
+            path: root.homePath
+            filters: root.filterFormatsAudio
+            on_submit: root.selectFile(args)
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            Image:
+                source: 'media/image/album.png'
+            Label:
+                id: label_selected
+                text: 'Nothing selected'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+                size_hint_y: None
+                height: 40
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 10
+                size_hint_y: None
+                height: 80
+                ProgressBar:
+                    id: progressbar_song
+                    value: 0
+                BoxLayout:
+                    Label:
+                        id: time_song_while_is_playing
+                        text: '00:00'
+                        text_size: self.size
+                        halign: 'left'
+                        valign: 'middle'
+                    Button:
+                        id: button_ctrl_audio
+                        text: 'Play'
+                        size_hint: None, None
+                        height: 40
+                        width: 80
+                        on_press: root.ctrlAudio()
+                    Label:
+                        id: time_song
+                        text: '00:00'
+                        text_size: self.size
+                        halign: 'right'
+                        valign: 'middle'
+        BoxLayout:
+            padding: 10
+            size_hint_y: None
+            height: 60
+            Label:
+                text: "Convert audio to:"
+                text_size: self.size
+                halign: "center"
+                valign: "middle"
+            Button:
+                id: button_dropdown
+                text: 'mp3'
+        Button:
+            text: "Convert song!"
+            size_hint_y: None
+            height: 50
+            on_press: root.convert()
