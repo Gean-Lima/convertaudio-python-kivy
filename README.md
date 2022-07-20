@@ -3,3 +3,14 @@
 A python program with kivy to convert audios.
 
 ![Screenshot program](https://raw.githubusercontent.com/Gean-Lima/convertaudio-python-kivy/main/media/image/screenshot.png)
+
+
+### Dependencies Python
+
+* Kivy
+* Pygame
+* Pydub
+
+### System dependencies
+
+* Ffmpeg
